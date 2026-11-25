@@ -142,7 +142,9 @@ fun DokonimApp() {
             if (showAdd) {
                 AlertDialog(onDismissRequest = { showAdd=false }, title = { Text(when(actionType){"sale"->"Savdo qo‘shish";"expense"->"Xarajat qo‘shish";"debt"->"Qarz qo‘shish";else->"Mahsulot qo‘shish"}) },
                     text = {
-                        OutlinedTextField(value=amountText, onValueChange={ amountText=it.filter(Char::isDigit) },
+                        OutlinedTextField(value=amountText, onValueChange = { newValue: String ->
+    amountText = newValue.filter { ch -> ch.isDigit() }
+                        },
                             label={Text("Summa yoki mahsulot soni")}, keyboardOptions=KeyboardOptions(keyboardType=KeyboardType.Number))
                     },
                     confirmButton = { TextButton(onClick = {
