@@ -197,7 +197,7 @@ private fun AuthScreen(dark:Boolean, lang:String, onDark:(Boolean)->Unit, onLang
 @Composable private fun QuickButton(t:String,card:Color,fg:Color,onClick:()->Unit) {
     Surface(color=card,shape=RoundedCornerShape(15.dp),modifier=Modifier.fillMaxWidth().clickable(onClick=onClick)) {
         Row(Modifier.padding(16.dp),verticalAlignment=Alignment.CenterVertically) {
-            Icon(Icons.Default.AddCircleOutline,null,tint=Green)
+            Text("+", color = Green, fontSize = 24.sp, fontWeight = FontWeight.Bold)
             Text(t,color=fg,modifier=Modifier.padding(start=10.dp),fontWeight=FontWeight.Medium)
         }
     }
